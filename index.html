@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Trivia Game</title>
+</head>
+<!--BOOTSTRAP  -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+  crossorigin="anonymous">
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Ranchers" rel="stylesheet">
+<!-- CSS Files -->
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+  <header id="masthead">
+    <div class="container">
+      <h1>Hocus Pocus Trivia</h1>
+    </div>
+  </header>
+  <div id="main-container" class="container">
+    <section class="main-section">
+      <h2>
+        <button type="button" id="start-button">Start</button>
+      </h2>
+
+      <!-- timer will be displayed in div #timer-->
+      <div id="timer"></div>
+
+      <!-- questions -->
+
+      <div class="container">
+        <div class="wrapper">
+          <p id="trivQuestion"></p>
+          <div id="trivButtons"></div>
+          <p id="response"></p>
+        </div>
+        <div class="losses">Losses: 0</div>
+        <div class="wins">Wins: 0</div>
+      </div>
+
+
+
+    </section>
+  </div>
+  <!-- JavaScript File & jQuery Lib -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>
