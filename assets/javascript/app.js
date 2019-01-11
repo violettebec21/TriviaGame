@@ -32,6 +32,7 @@ function resetTimer() {
             currentQuestion++;
             $("#trivButtons").empty();
             i++;
+            timer = 30;
             $("#response").empty();
             logic();
             timer = 30;
@@ -46,23 +47,42 @@ function stopTimerFunction() {
 
 
 var questionArr = [{
-    question: "What is the name of the school Max attends?",
-    choices: ["John Quincy HS", "John Adams High", "Halloweentown High", "Jacob Bailey High School "],
-    values: [true, false, false, false]
+    question: "What is Mike's older sister's name?",
+    choices: ["Amy", "Barb", "Joyce", "Nancy"],
+    values: [false, false, false, true]
 }, {
-    question: "What is the name of the school Max attends?",
-    choices: ["John Quincy HS", "John Adams High", "Halloweentown High", "Jacob Bailey High School "],
-    values: [true, false, false, false]
+    question: "What is Eleven's father's name?",
+    choices: ["Bruce", "Brenner", "Doc", "Burnham"],
+    values: [false, true, false, false]
 }, {
-    question: "What is the name of the school Max attends?",
-    choices: ["John Quincy HS", "John Adams High", "Halloweentown High", "Jacob Bailey High School "],
-    values: [true, false, false, false]
+    question: "What number does Eleven's sister have tattooed on her arm?",
+    choices: ["001", "005", "007", "008"],
+    values: [false, false, false, true]
 }, {
-    question: "What is the name of the school Max attends?",
-    choices: ["John Quincy HS", "John Adams High", "Halloweentown High", "Jacob Bailey High School "],
+    question: "How old is Will when he disappears?",
+    choices: ["5", "15", "12", "10"],
+    values: [false, false, true, false]
+}, {
+    question: "What is the name of Dustin's cat?",
+    choices: ["Meows", "Morty", "Mews", "Milo"],
+    values: [false, false, true, false]
+}, {
+    question: "Which actress plays Eleven?",
+    choices: ["Mindy Kaling", "Millie Bobby Brown", "Melissa Joan Hart", "Melvina Jo Brown"],
+    values: [false, true, false, false]
+},{
+    question: "Who asked Eleven to dance at the Snowball?",
+    choices: ["Dustin", "Will", "Mike", "Lucas"],
+    values: [false, false, true, false]
+},{
+    question: "What does Steve help Dustin with?",
+    choices: ["His hair", "His car", "His cat", "His plants"],
     values: [true, false, false, false]
+},{
+    question: "What does Will's mom put up to help find him?",
+    choices: ["Posters", "Christmas lights", "Bologne", "Post-its"],
+    values: [false, true, false, false]
 },
-
 ]
 
 // =======================================================================================================================================================
@@ -131,8 +151,8 @@ $(document).on("click", ".answer-buttons", function () {
         logic();
         //if out of questions (aka question number not in array)
 
-        if currentQuestion = question.length
-        else //reference psychic game 
+        // if currentQuestion = question.length
+        // else //reference psychic game 
     }
     console.log(currentQuestion);
 });
