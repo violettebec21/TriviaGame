@@ -16,11 +16,24 @@ var i = 0;
 var interval = null;
 
 // =======================================================================================================================================================
+function startGame() {
+    $(".time-remaining").hide();
+    $(".results").hide();
+}
+startGame();
 
 //START BUTTON
 $("#start-button").on("click", function () {
+    correct = 0;
+    wrong = 0;
+    currentQuestion = 0;
     logic();
     $("#start-button").hide();
+    $(".time-remaining").show();
+    $(".results").hide();
+    $("#trivQuestion").show();
+    $("#trivButtons").show();
+
 });
 
 function resetTimer() {
@@ -70,15 +83,15 @@ var questionArr = [{
     question: "Which actress plays Eleven?",
     choices: ["Mindy Kaling", "Millie Bobby Brown", "Melissa Joan Hart", "Melvina Jo Brown"],
     values: [false, true, false, false]
-},{
+}, {
     question: "Who asked Eleven to dance at the Snowball?",
     choices: ["Dustin", "Will", "Mike", "Lucas"],
     values: [false, false, true, false]
-},{
+}, {
     question: "What does Steve help Dustin with?",
     choices: ["His hair", "His car", "His cat", "His plants"],
     values: [true, false, false, false]
-},{
+}, {
     question: "What does Will's mom put up to help find him?",
     choices: ["Posters", "Christmas lights", "Bologne", "Post-its"],
     values: [false, true, false, false]
@@ -114,13 +127,10 @@ function answerButton() {
 // game logic
 function logic() {
     resetTimer();
-
     // questions are being placed in the array from above
     $("#trivQuestion").html(questionArr[currentQuestion].question)
     answerButton();
-
     //return the value of the button clicked
-
 }
 
 $(document).on("click", ".answer-buttons", function () {
@@ -133,28 +143,36 @@ $(document).on("click", ".answer-buttons", function () {
     console.log(answers);
     if ($(this).attr("value") === "true") {
         correct++;
-        $("#response").html("Correct");
-        nextQuestion();
     } else {
-
-        $("#response").html("Nope!");
         wrong++;
+    }
+
+    if (currentQuestion === questionArr.length - 1) {
+        console.log("last question");
+        endGame();
+    }
+    else {
         nextQuestion();
-    }
-
-    function nextQuestion(){
-        currentQuestion++;
-        timer = 30;
-        $("#trivButtons").empty();
-        i++;
-        $("#response").empty();
-        logic();
-        //if out of questions (aka question number not in array)
-
-        // if currentQuestion = question.length
-        // else //reference psychic game 
-    }
-    console.log(currentQuestion);
+    };
 });
 
+function nextQuestion() {
+    currentQuestion++;
+    timer = 30;
+    $("#trivButtons").empty();
+    i++;
+    $("#response").empty();
+    logic();
+}
 
+function endGame() {
+    $(".time-remaining").hide();
+    $(".results").show();
+    $("#correct").text("Correct: " + correct);
+    $("#incorrect").text("Incorrect: " + wrong);
+    $("#trivQuestion").hide();
+    $("#trivButtons").hide();
+    stopTimerFunction();
+    $("#start-button").show();
+
+};
