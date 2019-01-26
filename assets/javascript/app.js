@@ -22,6 +22,7 @@ function startGame() {
 }
 startGame();
 
+
 //START BUTTON
 $("#start-button").on("click", function () {
     correct = 0;
